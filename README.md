@@ -1,95 +1,53 @@
 
 # zoneedit
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
-
 #### Table of Contents
 
 1. [Description](#description)
 2. [Setup - The basics of getting started with zoneedit](#setup)
     * [What zoneedit affects](#what-zoneedit-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with zoneedit](#beginning-with-zoneedit)
 3. [Usage - Configuration options and additional functionality](#usage)
 4. [Limitations - OS compatibility, etc.](#limitations)
 5. [Development - Guide for contributing to the module](#development)
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module is what they want.
-
+This is a puppet module used to install zoneedit and the accompanying files.
 
 ## Setup
 
-### What zoneedit affects **OPTIONAL**
+### What zoneedit affects 
 
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
+This module installas and manages the following componets
+ * an uptodate copy of the icann zones repo
+ * an uptodate copy of the icann zonedit repo and maintains links to the tool
+ * bash-completion script for zoneedit
+ * SSH private keys needed to keep the repositories up to date
+ * SSH public key used by the zone repo pre-commit hook to ensure the zones repo is kept upto date with master
 
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
-### Beginning with zoneedit
-
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+### Setup requierments
+In order for the zones repo to stay up todate the pre-recive hook on the git server needs to be configuered to conect to this server and preform a git pull.  The git server should do this via SSH using the `git_pub_key` for authorisation
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+simply include the zonedit class and set the `git_pub_key` and  `git_priv_key` values to the approprite value.  it is recomended to use eyaml for the prive key
+
+```puppet
+include zonedit
+```
+```yaml
+zonedit::git_pub_key: 'AAAAPUBLICKEY'
+zonedit::git_prive_key: 'ENC[PKCS7,MIIH/PRIVATEKEY]'
+```
 
 ## Reference
 
-This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
+### Classes
 
-If you aren't ready to use Strings yet, manually create a REFERENCE.md in the root of your module directory and list out each of your module's classes, defined types, facts, functions, Puppet tasks, task plans, and resource types and providers, along with the parameters for each.
-
-For each element (class, defined type, function, and so on), list:
-
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
-
-For example:
-
-```
-### `pet::cat`
-
-#### Parameters
-
-##### `meow`
-
-Enables vocalization in your cat. Valid options: 'string'.
-
-Default: 'medium-loud'.
-```
-
-## Limitations
-
-In the Limitations section, list any incompatibilities, known issues, or other warnings.
-
-## Development
-
-In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+#### zonedit
+* `git_pub_key` (String, Default: check module data): public key used to authorise the git server pre-recive hook
+* `git_priv_key` (String, Default: check module data): the ssh\_private key used to clone git repos, this key should be configuered on the git server and be allowed to clone the two repos below
+* `git_user` (String, Default: 'dns0ps'): the user on the zoneedit server used for git operations
+* `zones_repo` (String, Default: 'git@git.dns.icann.org:/zonedit/zones.git'): the git repo containing the ICANN managed zone files
+* `zonedit_repo` (String, Default: 'git@git.dns.icann.org:zonedit/zonedit.git'): the git repo used to manage the zonedit tool

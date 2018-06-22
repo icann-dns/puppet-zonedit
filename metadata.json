@@ -6,7 +6,18 @@
   "license": "Apache-2.0",
   "source": "",
   "dependencies": [
-
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.25.1 <5.0.0"
+    },
+    {
+      "name": "puppetlabs-vcsrepo",
+      "version_requirement": ">= 2.0.0 <3.0.0"
+    },
+    {
+      "name": "voxpupuli-python",
+      "version_requirement": ">= 1.18.2 <2.0.0"
+    }
   ],
   "operatingsystem_support": [
     {
