@@ -93,13 +93,6 @@ describe 'zonedit' do
             source: 'puppet:///modules/zonedit/usr/local/bin/check-gsi-signer-soas.sh',
           )
         end
-#        it do
-#          is_expected.to contain_file('/usr/local/bin/check-rdns-signer-soas.sh').with(
-#            ensure: 'file',
-#            mode: '0755',
-#            source: 'puppet:///modules/zonedit/usr/local/bin/check-rdns-signer-soas.sh',
-#          )
-#        end
       end
       describe 'Change Defaults' do
         context 'git_pub_key' do
