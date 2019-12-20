@@ -83,21 +83,21 @@ describe 'zonedit' do
           is_expected.to contain_file('/usr/local/bin/bump-all-zones.sh').with(
             ensure: 'file',
             mode: '0755',
-            source: 'puppet:///modules/zonedit/usr/local/bin/bump-all-zones.sh'
+            source: 'puppet:///modules/zonedit/usr/local/bin/bump-all-zones.sh',
           )
         end
         it do
           is_expected.to contain_file('/usr/local/bin/check-gsi-signer-soas.sh').with(
             ensure: 'file',
             mode: '0755',
-            source: 'puppet:///modules/zonedit/usr/local/bin/check-gsi-signer-soas.sh'
+            source: 'puppet:///modules/zonedit/usr/local/bin/check-gsi-signer-soas.sh',
           )
         end
 #        it do
 #          is_expected.to contain_file('/usr/local/bin/check-rdns-signer-soas.sh').with(
 #            ensure: 'file',
 #            mode: '0755',
-#            source: 'puppet:///modules/zonedit/usr/local/bin/check-rdns-signer-soas.sh'
+#            source: 'puppet:///modules/zonedit/usr/local/bin/check-rdns-signer-soas.sh',
 #          )
 #        end
       end

@@ -70,4 +70,3 @@ class zonedit (
 #    source => 'puppet:///modules/zonedit/usr/local/bin/check-rdns-signer-soas.sh',
 #  }
 }
-
