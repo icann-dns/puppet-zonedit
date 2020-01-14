@@ -79,20 +79,6 @@ describe 'zonedit' do
             target: '/var/git_repos/zonedit/zonedit.py',
           )
         end
-        it do
-          is_expected.to contain_file('/usr/local/bin/bump-all-zones.sh').with(
-            ensure: 'file',
-            mode: '0755',
-            source: 'puppet:///modules/zonedit/usr/local/bin/bump-all-zones.sh',
-          )
-        end
-        it do
-          is_expected.to contain_file('/usr/local/bin/check-gsi-signer-soas.sh').with(
-            ensure: 'file',
-            mode: '0755',
-            source: 'puppet:///modules/zonedit/usr/local/bin/check-gsi-signer-soas.sh',
-          )
-        end
       end
       describe 'Change Defaults' do
         context 'git_pub_key' do

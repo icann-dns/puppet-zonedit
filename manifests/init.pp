@@ -54,19 +54,4 @@ class zonedit (
     ensure => link,
     target => '/var/git_repos/zonedit/zonedit.py',
   }
-  file { '/usr/local/bin/bump-all-zones.sh':
-    ensure => present,
-    mode   => '0755',
-    source => 'puppet:///modules/zonedit/usr/local/bin/bump-all-zones.sh',
-  }
-  file { '/usr/local/bin/check-gsi-signer-soas.sh':
-    ensure => present,
-    mode   => '0755',
-    source => 'puppet:///modules/zonedit/usr/local/bin/check-gsi-signer-soas.sh',
-  }
-#  file { '/usr/local/bin/check-rdns-signer-soas.sh':
-#    ensure => present,
-#    mode   => '0755',
-#    source => 'puppet:///modules/zonedit/usr/local/bin/check-rdns-signer-soas.sh',
-#  }
 }
