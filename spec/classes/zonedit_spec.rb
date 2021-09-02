@@ -7,8 +7,8 @@ describe 'zonedit' do
       git_pub_key: 'PUPLIC_KEY',
       git_priv_key: 'PRIVATE_KEY',
       # git_user: "dns0ps",
-      # zones_repo: "git@git.dns.icann.org:/zonedit/zones.git",
-      # zonedit_repo: "git@git.dns.icann.org:zonedit/zonedit.git",
+      # zones_repo: "git@git.dns.icann.org:zonedit/zones.git",
+      # zonedit_repo: "git@git.dns.icann.org:dns-eng/zonedit.git",
     }
   end
 
@@ -58,7 +58,7 @@ describe 'zonedit' do
             ensure: 'latest',
             provider: 'git',
             revision: 'master',
-            source: 'git@git.dns.icann.org:/zonedit/zones.git',
+            source: 'git@git.dns.icann.org:zonedit/zones.git',
             user: 'dns0ps',
             require: ['File[/var/git_repos]', 'File[/home/dns0ps/.ssh/id_rsa]'],
           )
@@ -69,7 +69,7 @@ describe 'zonedit' do
             provider: 'git',
             revision: 'master',
             user: 'dns0ps',
-            source: 'git@git.dns.icann.org:zonedit/zonedit.git',
+            source: 'git@git.dns.icann.org:dns-eng/zonedit.git',
             require: 'File[/var/git_repos]',
           )
         end

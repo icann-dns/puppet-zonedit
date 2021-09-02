@@ -4,8 +4,8 @@ class zonedit (
   String $git_pub_key,
   String $git_priv_key,
   String $git_user      = 'dns0ps',
-  String $zones_repo    = 'git@git.dns.icann.org:/zonedit/zones.git',
-  String $zonedit_repo = 'git@git.dns.icann.org:zonedit/zonedit.git',
+  String $zones_repo    = 'git@git.dns.icann.org:zonedit/zones.git',
+  String $zonedit_repo  = 'git@git.dns.icann.org:dns-eng/zonedit.git',
 ) {
 
   ensure_packages(['bind9utils', 'git'])
