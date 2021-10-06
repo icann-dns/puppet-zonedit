@@ -6,9 +6,9 @@ describe 'zonedit' do
     {
       git_pub_key: 'PUPLIC_KEY',
       git_priv_key: 'PRIVATE_KEY',
-      # git_user: "dns0ps",
-      # zones_repo: "git@git.dns.icann.org:zonedit/zones.git",
-      # zonedit_repo: "git@git.dns.icann.org:dns-eng/zonedit.git",
+      git_user: "dns0ps",
+      zones_repo: "git@git.dns.icann.org:zonedit/zones.git",
+      zonedit_repo: "git@git.dns.icann.org:dns-eng/zonedit.git",
     }
   end
 
@@ -22,7 +22,7 @@ describe 'zonedit' do
 
       describe 'check default config' do
         it { is_expected.to compile.with_all_deps }
-        it { is_expected.to contain_python__pip('GitPython').with_ensure('2.0.5') }
+        it { is_expected.to contain_python__pip('GitPython').with_ensure('latest') }
         it do
           is_expected.to contain_ssh_authorized_key(
             'git@zonedit.dns.icann.org',
@@ -67,7 +67,7 @@ describe 'zonedit' do
           is_expected.to contain_vcsrepo('/var/git_repos/zonedit').with(
             ensure: 'latest',
             provider: 'git',
-            revision: 'master',
+            revision: 'py3',
             user: 'dns0ps',
             source: 'git@git.dns.icann.org:dns-eng/zonedit.git',
             require: 'File[/var/git_repos]',
@@ -135,22 +135,22 @@ describe 'zonedit' do
             )
           end
           it do
-            is_expected.to contain_vcsrepo('/var/git_repos/zones').with(
-              ensure: 'latest',
-              provider: 'git',
-              revision: 'master',
-              source: 'git@git.dns.icann.org:/zonedit/zones.git',
-              user: 'foobar',
-              require: ['File[/var/git_repos]', 'File[/home/foobar/.ssh/id_rsa]'],
-            )
+          is_expected.to contain_vcsrepo('/var/git_repos/zones').with(
+            ensure: 'latest',
+            provider: 'git',
+            revision: 'master',
+            source: 'git@git.dns.icann.org:zonedit/zones.git',
+            user: 'foobar',
+            require: ['File[/var/git_repos]', 'File[/home/foobar/.ssh/id_rsa]'],
+          )
           end
           it do
             is_expected.to contain_vcsrepo('/var/git_repos/zonedit').with(
               ensure: 'latest',
               provider: 'git',
-              revision: 'master',
+              revision: 'py3',
               user: 'foobar',
-              source: 'git@git.dns.icann.org:zonedit/zonedit.git',
+              source: 'git@git.dns.icann.org:dns-eng/zonedit.git',
               require: 'File[/var/git_repos]',
             )
           end
@@ -176,7 +176,7 @@ describe 'zonedit' do
             is_expected.to contain_vcsrepo('/var/git_repos/zonedit').with(
               ensure: 'latest',
               provider: 'git',
-              revision: 'master',
+              revision: 'py3',
               user: 'dns0ps',
               source: 'foobar',
               require: 'File[/var/git_repos]',

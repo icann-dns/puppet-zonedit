@@ -10,7 +10,7 @@ class zonedit (
 
   ensure_packages(['bind9utils', 'git'])
   python::pip {'GitPython':
-    ensure   => '2.0.5',
+    ensure   => 'latest',
   }
   ssh_authorized_key { 'git@zonedit.dns.icann.org':
     user => $git_user,
@@ -46,7 +46,7 @@ class zonedit (
   vcsrepo { '/var/git_repos/zonedit':
     ensure   => latest,
     provider => git,
-    revision => master,
+    revision => 'py3',
     user     => $git_user,
     source   => $zonedit_repo,
     require  => File['/var/git_repos'],

@@ -4,12 +4,15 @@ stages:
   - rspec
   - beaker_apply
   - beaker_agent
-
+variables:
+  BEAKER_PUPPET_COLLECTION: puppet5
+  PUPPET_GEM_VERSION: "~> 5.0"
 before_script:
   - ruby -v
   - bundle --version
   - gem --version
   - rm Gemfile.lock || true
+  - rm -rf -vendor/bundle || true      
   - bundle install --path=${BUNDLE_PATH:-vendor/bundle}
 
 lint:
