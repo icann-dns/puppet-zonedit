@@ -46,7 +46,7 @@ class zonedit (
   vcsrepo { '/var/git_repos/zonedit':
     ensure   => latest,
     provider => git,
-    revision => 'py3',
+    revision => 'master',
     user     => $git_user,
     source   => $zonedit_repo,
     require  => File['/var/git_repos'],

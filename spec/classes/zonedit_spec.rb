@@ -67,7 +67,7 @@ describe 'zonedit' do
           is_expected.to contain_vcsrepo('/var/git_repos/zonedit').with(
             ensure: 'latest',
             provider: 'git',
-            revision: 'py3',
+            revision: 'master',
             user: 'dns0ps',
             source: 'git@git.dns.icann.org:dns-eng/zonedit.git',
             require: 'File[/var/git_repos]',
@@ -148,7 +148,7 @@ describe 'zonedit' do
             is_expected.to contain_vcsrepo('/var/git_repos/zonedit').with(
               ensure: 'latest',
               provider: 'git',
-              revision: 'py3',
+              revision: 'master',
               user: 'foobar',
               source: 'git@git.dns.icann.org:dns-eng/zonedit.git',
               require: 'File[/var/git_repos]',
@@ -176,7 +176,7 @@ describe 'zonedit' do
             is_expected.to contain_vcsrepo('/var/git_repos/zonedit').with(
               ensure: 'latest',
               provider: 'git',
-              revision: 'py3',
+              revision: 'master',
               user: 'dns0ps',
               source: 'foobar',
               require: 'File[/var/git_repos]',
