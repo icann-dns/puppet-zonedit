@@ -6,9 +6,9 @@ describe 'zonedit' do
     {
       git_pub_key: 'PUPLIC_KEY',
       git_priv_key: 'PRIVATE_KEY',
-      git_user: "dns0ps",
-      zones_repo: "git@git.dns.icann.org:zonedit/zones.git",
-      zonedit_repo: "git@git.dns.icann.org:dns-eng/zonedit.git",
+      git_user: 'dns0ps',
+      zones_repo: 'git@git.dns.icann.org:zonedit/zones.git',
+      zonedit_repo: 'git@git.dns.icann.org:dns-eng/zonedit.git',
     }
   end
 
@@ -135,14 +135,14 @@ describe 'zonedit' do
             )
           end
           it do
-          is_expected.to contain_vcsrepo('/var/git_repos/zones').with(
-            ensure: 'latest',
-            provider: 'git',
-            revision: 'master',
-            source: 'git@git.dns.icann.org:zonedit/zones.git',
-            user: 'foobar',
-            require: ['File[/var/git_repos]', 'File[/home/foobar/.ssh/id_rsa]'],
-          )
+            is_expected.to contain_vcsrepo('/var/git_repos/zones').with(
+              ensure: 'latest',
+              provider: 'git',
+              revision: 'master',
+              source: 'git@git.dns.icann.org:zonedit/zones.git',
+              user: 'foobar',
+              require: ['File[/var/git_repos]', 'File[/home/foobar/.ssh/id_rsa]'],
+            )
           end
           it do
             is_expected.to contain_vcsrepo('/var/git_repos/zonedit').with(

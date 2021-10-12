@@ -1,8 +1,22 @@
+# -*- yaml_mode -*-
 # This file can be used to install module dependencies for unit testing
 # See https://github.com/puppetlabs/puppetlabs_spec_helper#using-fixtures for details
 ---
+puppet_version: '>= 6.0.0'
 fixtures:
+  repositories:
+    stdlib:
+      repo: 'https://github.com/puppetlabs/puppetlabs-stdlib'
+      ref: 'v7.0.1'
+    vcsrepo:
+      repo: 'https://github.com/puppetlabs/puppetlabs-vcsrepo'
+      ref: 'v3.2.0'
+    python:
+      repo: 'https://github.com/voxpupuli/puppet-python'
+      ref: 'v5.0.0'
+    ssh:
+      repo: 'https://github.com/icann-dns/puppet-ssh'
+      ref: '0.2.2'
   forge_modules:
-     stdlib: "puppetlabs/stdlib"
-     vcsrepo: "puppetlabs/vcsrepo"
-     python: "stankevich/python"
+    sshkeys_core: 
+      repo: 'puppetlabs/sshkeys_core'
