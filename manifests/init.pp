@@ -10,7 +10,7 @@ class zonedit (
 
   ensure_packages(['bind9utils', 'git'])
   python::pip {'GitPython':
-    ensure       => '3.1.18',
+    ensure       => 'present',
     pip_provider => 'pip3',
   }
   ssh_authorized_key { 'git@zonedit.dns.icann.org':

@@ -22,7 +22,7 @@ describe 'zonedit' do
 
       describe 'check default config' do
         it { is_expected.to compile.with_all_deps }
-        it { is_expected.to contain_python__pip('GitPython').with_ensure('3.1.18') }
+        it { is_expected.to contain_python__pip('GitPython').with_ensure('present') }
         it do
           is_expected.to contain_ssh_authorized_key(
             'git@zonedit.dns.icann.org',
