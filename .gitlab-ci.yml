@@ -1,4 +1,3 @@
-#-*- yaml_mode -*-
 ---
 stages:
   - syntax

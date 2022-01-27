@@ -16,7 +16,7 @@ fixtures:
       ref: 'v5.0.0'
     ssh:
       repo: 'https://github.com/icann-dns/puppet-ssh'
-      ref: '0.2.2'
+      ref: 'v8.0.0'
   forge_modules:
     sshkeys_core: 
       repo: 'puppetlabs/sshkeys_core'
