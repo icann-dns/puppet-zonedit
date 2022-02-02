@@ -50,7 +50,10 @@ class zonedit (
     revision => 'master',
     user     => $git_user,
     source   => $zonedit_repo,
-    require  => File['/var/git_repos'],
+    require  => [
+      File['/var/git_repos'],
+      File["/home/${git_user}/.ssh/id_rsa"],
+    ],
   } -> file { '/usr/local/bin/zonedit':
     ensure => link,
     target => '/var/git_repos/zonedit/zonedit.py',

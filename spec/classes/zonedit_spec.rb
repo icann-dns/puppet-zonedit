@@ -70,7 +70,7 @@ describe 'zonedit' do
             revision: 'master',
             user: 'dns0ps',
             source: 'git@git.dns.icann.org:dns-eng/zonedit.git',
-            require: 'File[/var/git_repos]',
+            require: ['File[/var/git_repos]', 'File[/home/dns0ps/.ssh/id_rsa]'],
           )
         end
         it do
@@ -151,7 +151,7 @@ describe 'zonedit' do
               revision: 'master',
               user: 'foobar',
               source: 'git@git.dns.icann.org:dns-eng/zonedit.git',
-              require: 'File[/var/git_repos]',
+              require: ['File[/var/git_repos]', 'File[/home/foobar/.ssh/id_rsa]'],
             )
           end
         end
@@ -179,7 +179,7 @@ describe 'zonedit' do
               revision: 'master',
               user: 'dns0ps',
               source: 'foobar',
-              require: 'File[/var/git_repos]',
+              require: ['File[/var/git_repos]', 'File[/home/dns0ps/.ssh/id_rsa]'],
             )
           end
         end
