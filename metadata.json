@@ -1,6 +1,6 @@
 {
   "name": "icann-zoneedit",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "noc@dns.icann.org",
   "summary": "",
   "license": "Apache-2.0",
@@ -11,7 +11,7 @@
     { "name": "voxpupuli-python",        "version_requirement": ">= 1.18.2 <2.0.0" }
   ],
   "operatingsystem_support": [
-    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "18.04" ] }
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "20.04" ] }
   ],
   "requirements": [
     { "name": "puppet", "version_requirement": ">= 6.21.0 < 8.0.0" }
