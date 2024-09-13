@@ -40,7 +40,7 @@ describe 'zonedit' do
         end
         it do
           is_expected.to contain_file('/etc/bash_completion.d/zonedit').with(
-            ensure: 'present',
+            ensure: 'file',
             source: 'puppet:///modules/zonedit/etc/bash_completion.d/zonedit',
           )
         end

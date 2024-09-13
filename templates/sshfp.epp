@@ -1,0 +1,10 @@
+<%- | Hash[Stdlib::Fqdn, Array[String[1]]] $sshfps, Integer[1] $ttl | -%>
+<%-
+$sshfps.each |$fqdn, $records| {
+  $records.each |$record| {
+-%>
+<%= $fqdn %>. <%= $ttl %> IN <%= $record %>
+<%-
+  }
+}
+-%>
