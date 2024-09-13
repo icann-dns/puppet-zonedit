@@ -13,7 +13,7 @@ as a hash.  If fetched from puppetdb the sshfp records will be fetched from all 
 
 ### Functions
 
-* [`zonedit::fetch_sshfp`](#zoneditfetch_sshfp): zonedit::fetch_sshfp() == { 'fqdn1' => [ 'record1', 'record2' ], 'fqdn2' => [ 'record1', 'record2' ] }
+* [`zonedit::fetch_sshfp`](#zoneditfetch_sshfp): this functions fetches the ssh fact from puppetdb and extracts the SSHFP records
 
 ## Classes
 

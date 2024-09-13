@@ -1,4 +1,4 @@
-# @summnary this functions fetches the ssh fact from puppetdb and extracts the SSHFP records
+# @summary this functions fetches the ssh fact from puppetdb and extracts the SSHFP records
 # @return a hash of SSHFP records in the form of { 'fqdn' => [ 'record1', 'record2', ... ] }
 # @example
 # zonedit::fetch_sshfp() == { 'fqdn1' => [ 'record1', 'record2' ], 'fqdn2' => [ 'record1', 'record2' ] }
