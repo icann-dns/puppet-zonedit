@@ -33,6 +33,7 @@ class zonedit::sshfp (
   exec { "Bump ${parent_zone} serial":
     command     => "/usr/local/bin/zonedit --bump ${parent_zone}",
     user        => $zonedit::git_user,
+    cwd         => "/home/${zonedit::git_user}",
     refreshonly => true,
   }
   file { $zone_file:
